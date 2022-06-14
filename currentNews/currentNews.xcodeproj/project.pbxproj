@@ -41,6 +41,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F485B50B28580A6900CEFA34 /* AppMain */ = {
+			isa = PBXGroup;
+			children = (
+				F7A935CA285518A10017F57A /* AppDelegate.swift */,
+				F7A935CC285518A10017F57A /* SceneDelegate.swift */,
+			);
+			path = AppMain;
+			sourceTree = "<group>";
+		};
+		F485B50C28580A7400CEFA34 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F7A935D0285518A10017F57A /* Main.storyboard */,
+				F7A935D5285518A20017F57A /* LaunchScreen.storyboard */,
+				F7A935D3285518A20017F57A /* Assets.xcassets */,
+				F7A935D8285518A20017F57A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F485B50D28580AB500CEFA34 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F485B50E28580AC300CEFA34 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F485B50F28580ACB00CEFA34 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F485B51028580B8100CEFA34 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F7A935CE285518A10017F57A /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F485B51128580B8900CEFA34 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				F7A935DE28551D550017F57A /* NewsViewController.swift */,
+				F7A935E02855205A0017F57A /* CurrentNewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		F7A935BE285518A10017F57A = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +118,12 @@
 		F7A935C9285518A10017F57A /* currentNews */ = {
 			isa = PBXGroup;
 			children = (
-				F7A935CA285518A10017F57A /* AppDelegate.swift */,
-				F7A935CC285518A10017F57A /* SceneDelegate.swift */,
+				F485B50B28580A6900CEFA34 /* AppMain */,
 				F7A935E2285521D80017F57A /* Controllers */,
-				F7A935D0285518A10017F57A /* Main.storyboard */,
-				F7A935D3285518A20017F57A /* Assets.xcassets */,
-				F7A935D5285518A20017F57A /* LaunchScreen.storyboard */,
-				F7A935D8285518A20017F57A /* Info.plist */,
+				F485B50F28580ACB00CEFA34 /* Extensions */,
+				F485B50E28580AC300CEFA34 /* Models */,
+				F485B50C28580A7400CEFA34 /* Resources */,
+				F485B50D28580AB500CEFA34 /* Services */,
 			);
 			path = currentNews;
 			sourceTree = "<group>";
@@ -74,9 +131,8 @@
 		F7A935E2285521D80017F57A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F7A935CE285518A10017F57A /* LoginViewController.swift */,
-				F7A935DE28551D550017F57A /* NewsViewController.swift */,
-				F7A935E02855205A0017F57A /* CurrentNewsViewController.swift */,
+				F485B51028580B8100CEFA34 /* Login */,
+				F485B51128580B8900CEFA34 /* News */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,7 +363,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NX4Z863YP5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = currentNews/Info.plist;
+				INFOPLIST_FILE = currentNews/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -335,7 +391,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NX4Z863YP5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = currentNews/Info.plist;
+				INFOPLIST_FILE = currentNews/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
