@@ -31,13 +31,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log in"/>
                                 <connections>
-                                    <segue destination="MZw-tr-cqf" kind="show" id="U53-nB-WEI"/>
+                                    <action selector="logInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UX3-Wb-4ki"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7n-cU-e2G">
                                 <rect key="frame" x="120" y="651" width="174" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FYl-1D-AYo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -58,6 +61,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5x3-dA-8g7"/>
+                    <connections>
+                        <outlet property="loginTextField" destination="ZEN-2o-eOj" id="0pL-Gk-C9s"/>
+                        <outlet property="passwordTextField" destination="WkD-QC-fBR" id="9AU-nl-fHH"/>
+                        <segue destination="MZw-tr-cqf" kind="show" identifier="showNews" id="c4H-r0-Uhg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
