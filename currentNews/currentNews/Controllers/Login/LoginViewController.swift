@@ -9,6 +9,8 @@ import UIKit
 import RealmSwift
 
 class LoginViewController: UIViewController {
+    
+    let signinView = SignInView()
 
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,8 +21,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view = signinView
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         router = LaunchRouter(viewController: self)
     }

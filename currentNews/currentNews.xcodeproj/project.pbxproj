@@ -16,6 +16,7 @@
 		F4FF89522860E19A009AF430 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B51628592C6800CEFA34 /* NewsModel.swift */; };
 		F7606EC6286482E00019FD27 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F7606EC5286482E00019FD27 /* Realm */; };
 		F7606EC8286482E00019FD27 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7606EC7286482E00019FD27 /* RealmSwift */; };
+		AB12497F285FD1F20028C076 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12497E285FD1F20028C076 /* SignInView.swift */; };
 		F7A935CB285518A10017F57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CA285518A10017F57A /* AppDelegate.swift */; };
 		F7A935CD285518A10017F57A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CC285518A10017F57A /* SceneDelegate.swift */; };
 		F7A935CF285518A10017F57A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CE285518A10017F57A /* LoginViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB12497E285FD1F20028C076 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F485B51228591F4000CEFA34 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F485B5142859212E00CEFA34 /* CountriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesList.swift; sourceTree = "<group>"; };
 		F485B51628592C6800CEFA34 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				F7A935CE285518A10017F57A /* LoginViewController.swift */,
+				AB12497E285FD1F20028C076 /* SignInView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				F4FF89502860E17F009AF430 /* Categories.swift in Sources */,
 				F7E53E7A28604C3A008F71C2 /* Router.swift in Sources */,
 				F7A935CF285518A10017F57A /* LoginViewController.swift in Sources */,
+				AB12497F285FD1F20028C076 /* SignInView.swift in Sources */,
 				F7A935CB285518A10017F57A /* AppDelegate.swift in Sources */,
 				F7F92ED3285A2AFF00873AF5 /* AuthRealmModel.swift in Sources */,
 				F7A935CD285518A10017F57A /* SceneDelegate.swift in Sources */,
