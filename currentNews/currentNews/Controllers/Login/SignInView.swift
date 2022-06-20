@@ -172,8 +172,7 @@ class SignInView: UIView {
     
     private lazy var stackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews:
-                                    [image,
-                                     signInLabel,
+                                    [signInLabel,
                                      usernameStackView,
                                      usernameTextField,
                                      passwordStackView,
@@ -182,7 +181,7 @@ class SignInView: UIView {
                                      passwordRecoveryButton,
                                      makeAccountView])
         stack.axis = .vertical
-        stack.distribution = .fill
+        stack.alignment = .fill
         stack.spacing = 12
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -201,6 +200,7 @@ class SignInView: UIView {
     
     private func setupView() {
         backgroundColor = .white
+        addSubview(image)
         addSubview(stackView)
         image.image = UIImage(named: Constants.imageName)
         setupConstraints()
@@ -211,7 +211,12 @@ class SignInView: UIView {
         let margins = layoutMarginsGuide
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: margins.topAnchor),
+            image.topAnchor.constraint(equalTo: margins.topAnchor),
+            image.centerXAnchor.constraint(equalTo: margins.centerXAnchor),
+    ])
+    
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: image.bottomAnchor),
             stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -160),
             stackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
