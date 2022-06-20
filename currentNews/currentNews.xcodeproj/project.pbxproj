@@ -70,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				F7F92ED2285A2AFF00873AF5 /* AuthRealmModel.swift */,
+				F7E53EB328606C61008F71C2 /* RealmManager */,
+				F7E53E7F28604C76008F71C2 /* Navigation */,
 				F7A935D0285518A10017F57A /* Main.storyboard */,
 				F7A935D5285518A20017F57A /* LaunchScreen.storyboard */,
 				F7A935D3285518A20017F57A /* Assets.xcassets */,
@@ -137,10 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				F485B50B28580A6900CEFA34 /* AppMain */,
-				F7E53E7F28604C76008F71C2 /* Navigation */,
 				F7A935E2285521D80017F57A /* Controllers */,
 				F485B50F28580ACB00CEFA34 /* Extensions */,
-				F7E53EB328606C61008F71C2 /* RealmManager */,
 				F485B50E28580AC300CEFA34 /* Models */,
 				F485B50C28580A7400CEFA34 /* Resources */,
 				F485B50D28580AB500CEFA34 /* Services */,
