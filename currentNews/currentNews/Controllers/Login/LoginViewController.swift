@@ -7,15 +7,15 @@
 
 import UIKit
 import RealmSwift
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var realmUser: Results<User>?
     var user = User()
-    let realm = try! Realm()
     var router: LaunchRouter?
+    private let authRealm = AuthRealm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class LoginViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         router = LaunchRouter(viewController: self)
-        realmUser = realm.objects(User.self)
     }
    
     
@@ -43,7 +42,7 @@ class LoginViewController: UIViewController {
         } else {
             user.login = login
             user.password = password
-            if realm.object(ofType: User.self, forPrimaryKey: "\(login)") != nil {
+            if authRealm.searchLogin(User(login: login, password: password)) {
                 router?.toNewsViewController()
             } else {
                 makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
@@ -59,20 +58,19 @@ class LoginViewController: UIViewController {
         
         if login.isEmpty || password.isEmpty {
             makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
+        } else if authRealm.searchLogin(User(login: login, password: password)) {
+            makeAlert(title: "Такой пользователь уже существует", message: "Проверьте данные или зарегистрируйтесь заново!")
         } else {
             user.login = login
             user.password = password
             
-            if realm.object(ofType: User.self, forPrimaryKey: "\(login)") != nil {
-                makeAlert(title: "Такой пользователь уже существует", message: "Проверьте данные или зарегистрируйтесь заново!")
-            } else {
-                try! realm.write {
-                    realm.add(user)
-                }
+            authRealm.addUser(User(login: login, password: password))
+            
+            }
                 router?.toNewsViewController()
             }
-        }
-    }
+        
+    
     
     @IBAction func logInAction(_ sender: Any) {
         loginButtonTapped()
