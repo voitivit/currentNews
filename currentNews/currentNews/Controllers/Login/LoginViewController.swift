@@ -10,7 +10,7 @@ import RealmSwift
 
 class LoginViewController: UIViewController {
     
-    let signinView = SignInView()
+    private lazy var signinView = AuthView()
 
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = signinView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,5 +85,11 @@ class LoginViewController: UIViewController {
         signUpButtonTapped()
     }
     
+=======
+
+    override func loadView() {
+        view = signinView
+    }
+>>>>>>> 6caa25b... refactoring Auth view
 }
 
