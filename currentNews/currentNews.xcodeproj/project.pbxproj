@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F485B51328591F4000CEFA34 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B51228591F4000CEFA34 /* NetworkService.swift */; };
 		F485B5152859212E00CEFA34 /* CountriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B5142859212E00CEFA34 /* CountriesList.swift */; };
-		F485B51728592C6800CEFA34 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B51628592C6800CEFA34 /* NewsModel.swift */; };
-		F4ABB9FA285E5D72002B8B7C /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9F9285E5D72002B8B7C /* Categories.swift */; };
 		F4ABB9FC285E6265002B8B7C /* NewsLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FB285E6265002B8B7C /* NewsLanguages.swift */; };
 		F4ABB9FE285E6579002B8B7C /* SourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FD285E6579002B8B7C /* SourceModel.swift */; };
 		F4ABBA00285E6AD8002B8B7C /* NewsSortingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FF285E6AD8002B8B7C /* NewsSortingType.swift */; };
@@ -81,11 +78,6 @@
 		F485B50C28580A7400CEFA34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F7F92ED2285A2AFF00873AF5 /* AuthRealmModel.swift */,
-				F7E53EAE28606C44008F71C2 /* RealmConfig.swift */,
-				F7E53EB028606C51008F71C2 /* AuthRealm.swift */,
-				F7E53E7928604C3A008F71C2 /* Router.swift */,
-				F7E53E7B28604C49008F71C2 /* LaunchRouter.swift */,
 				F7A935D0285518A10017F57A /* Main.storyboard */,
 				F7A935D5285518A20017F57A /* LaunchScreen.storyboard */,
 				F7A935D3285518A20017F57A /* Assets.xcassets */,
@@ -106,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				F4ABBA01285E6BAE002B8B7C /* Support Entities */,
+				F7F92ED2285A2AFF00873AF5 /* AuthRealmModel.swift */,
 				F485B51628592C6800CEFA34 /* NewsModel.swift */,
 				F4ABB9FD285E6579002B8B7C /* SourceModel.swift */,
 			);
@@ -147,6 +140,32 @@
 			path = "Support Entities";
 			sourceTree = "<group>";
 		};
+		F4FF894D2860E06C009AF430 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F4FF894E2860E079009AF430 /* Router */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F4FF894E2860E079009AF430 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F7E53E7928604C3A008F71C2 /* Router.swift */,
+				F7E53E7B28604C49008F71C2 /* LaunchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F4FF894F2860E09C009AF430 /* RealmManager */ = {
+			isa = PBXGroup;
+			children = (
+				F7E53EB028606C51008F71C2 /* AuthRealm.swift */,
+				F7E53EAE28606C44008F71C2 /* RealmConfig.swift */,
+			);
+			path = RealmManager;
+			sourceTree = "<group>";
+		};
 		F7A935BE285518A10017F57A = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +189,8 @@
 				F7A935E2285521D80017F57A /* Controllers */,
 				F485B50F28580ACB00CEFA34 /* Extensions */,
 				F485B50E28580AC300CEFA34 /* Models */,
+				F4FF894D2860E06C009AF430 /* Navigation */,
+				F4FF894F2860E09C009AF430 /* RealmManager */,
 				F485B50C28580A7400CEFA34 /* Resources */,
 				F485B50D28580AB500CEFA34 /* Services */,
 			);
