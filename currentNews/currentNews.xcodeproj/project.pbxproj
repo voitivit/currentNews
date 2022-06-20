@@ -11,6 +11,9 @@
 		F4ABB9FC285E6265002B8B7C /* NewsLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FB285E6265002B8B7C /* NewsLanguages.swift */; };
 		F4ABB9FE285E6579002B8B7C /* SourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FD285E6579002B8B7C /* SourceModel.swift */; };
 		F4ABBA00285E6AD8002B8B7C /* NewsSortingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FF285E6AD8002B8B7C /* NewsSortingType.swift */; };
+		F4FF89502860E17F009AF430 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9F9285E5D72002B8B7C /* Categories.swift */; };
+		F4FF89512860E185009AF430 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B51228591F4000CEFA34 /* NetworkService.swift */; };
+		F4FF89522860E19A009AF430 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B51628592C6800CEFA34 /* NewsModel.swift */; };
 		F7A935CB285518A10017F57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CA285518A10017F57A /* AppDelegate.swift */; };
 		F7A935CD285518A10017F57A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CC285518A10017F57A /* SceneDelegate.swift */; };
 		F7A935CF285518A10017F57A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CE285518A10017F57A /* LoginViewController.swift */; };
@@ -286,6 +289,7 @@
 			files = (
 				F7E53EB128606C51008F71C2 /* AuthRealm.swift in Sources */,
 				F7E53E7C28604C49008F71C2 /* LaunchRouter.swift in Sources */,
+				F4FF89502860E17F009AF430 /* Categories.swift in Sources */,
 				F7E53E7A28604C3A008F71C2 /* Router.swift in Sources */,
 				F7A935CF285518A10017F57A /* LoginViewController.swift in Sources */,
 				F7A935CB285518A10017F57A /* AppDelegate.swift in Sources */,
@@ -293,8 +297,10 @@
 				F7A935CD285518A10017F57A /* SceneDelegate.swift in Sources */,
 				F4ABB9FE285E6579002B8B7C /* SourceModel.swift in Sources */,
 				F4ABB9FC285E6265002B8B7C /* NewsLanguages.swift in Sources */,
+				F4FF89512860E185009AF430 /* NetworkService.swift in Sources */,
 				F7A935E12855205A0017F57A /* CurrentNewsViewController.swift in Sources */,
 				F7E53EAF28606C44008F71C2 /* RealmConfig.swift in Sources */,
+				F4FF89522860E19A009AF430 /* NewsModel.swift in Sources */,
 				F4ABBA00285E6AD8002B8B7C /* NewsSortingType.swift in Sources */,
 				F7A935DF28551D550017F57A /* NewsViewController.swift in Sources */,
 				F485B5152859212E00CEFA34 /* CountriesList.swift in Sources */,
