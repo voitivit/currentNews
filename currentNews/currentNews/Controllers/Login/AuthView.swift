@@ -179,9 +179,7 @@ class AuthView: UIView {
                                      usernameTextField,
                                      passwordStackView,
                                      passwordTextField,
-                                     goButton,
-                                     passwordRecoveryButton,
-                                     accountStateView])
+                                     goButton])
         stack.axis = .vertical
         stack.alignment = .fill
         stack.spacing = 12
@@ -206,6 +204,8 @@ class AuthView: UIView {
         backgroundColor = .white
         addSubview(image)
         addSubview(stackView)
+        addSubview(passwordRecoveryButton)
+        addSubview(accountStateView)
         image.image = UIImage(named: Constants.imageName)
         setupConstraints()
         setupSignText()
@@ -222,7 +222,6 @@ class AuthView: UIView {
     
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: image.bottomAnchor),
-            stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -160),
             stackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         ])
@@ -235,16 +234,20 @@ class AuthView: UIView {
         NSLayoutConstraint.activate([
             usernameTextField.heightAnchor.constraint(equalToConstant: 50),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
+            goButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         NSLayoutConstraint.activate([
-            goButton.heightAnchor.constraint(equalToConstant: 50),
+            passwordRecoveryButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            passwordRecoveryButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            passwordRecoveryButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
             passwordRecoveryButton.heightAnchor.constraint(equalToConstant: 50),
         ])
         
         NSLayoutConstraint.activate([
             accountStateView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-            accountStateView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+            accountStateView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
+            accountStateView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -8)
         ])
         
         NSLayoutConstraint.activate([
@@ -260,6 +263,8 @@ class AuthView: UIView {
             goButton.setTitle(Constants.signInText, for: .normal)
             accountStateLabel.text = Constants.makeAccountTextLabel
             accountStateButton.setTitle(Constants.signUpText, for: .normal)
+            
+            passwordRecoveryButton.isHidden = false
         } else {
             titleLabel.text = Constants.signUpTitleText
             goButton.setTitle(Constants.signUpText, for: .normal)
