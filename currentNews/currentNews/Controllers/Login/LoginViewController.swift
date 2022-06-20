@@ -15,19 +15,22 @@ class LoginViewController: UIViewController {
     var realmUser: Results<User>?
     var user = User()
     let realm = try! Realm()
+    var router: LaunchRouter?
     
-    override func viewWillAppear(_ animated: Bool) {
-        realmUser = realm.objects(User.self)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        router = LaunchRouter(viewController: self)
+        realmUser = realm.objects(User.self)
+    }
+   
     
     func makeAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+        self.present(alert, animated: true)
     }
     
     private func loginButtonTapped() {
@@ -41,7 +44,7 @@ class LoginViewController: UIViewController {
             user.login = login
             user.password = password
             if realm.object(ofType: User.self, forPrimaryKey: "\(login)") != nil {
-                performSegue(withIdentifier: "showNews", sender: self)
+                router?.toNewsViewController()
             } else {
                 makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
             }
@@ -66,7 +69,7 @@ class LoginViewController: UIViewController {
                 try! realm.write {
                     realm.add(user)
                 }
-                performSegue(withIdentifier: "showNews", sender: self)
+                router?.toNewsViewController()
             }
         }
     }
