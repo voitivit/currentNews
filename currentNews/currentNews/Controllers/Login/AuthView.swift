@@ -9,9 +9,8 @@ import UIKit
 
 class AuthView: UIView {
     
-    var signinButtonHandler: ((String, String) -> Void)?
-    var signupButtonHandler: ((String, String) -> Void)?
-    var passwordRecoveryButtonHandler: ((String, String) -> Void)?
+    @objc var goButtonHandler: ((String, String) -> Void)?
+    @objc var passwordRecoveryButtonHandler: ((String, String) -> Void)?
     
     enum Constants {
         static let signInTitleText = "Let's Sign You In"
@@ -209,6 +208,7 @@ class AuthView: UIView {
         image.image = UIImage(named: Constants.imageName)
         setupConstraints()
         setupSignText()
+        setButtonsAction()
     }
     
     private func setupConstraints() {
@@ -273,5 +273,16 @@ class AuthView: UIView {
             
             passwordRecoveryButton.isHidden = true
         }
+    }
+    
+    private func setButtonsAction() {
+        accountStateButton.addTarget(self, action: #selector(toogleAccountState), for: .touchUpInside)
+        goButton.addTarget(self, action: #selector(getter: goButtonHandler), for: .touchUpInside)
+        passwordRecoveryButton.addTarget(self, action: #selector(getter: passwordRecoveryButtonHandler), for: .touchUpInside)
+    }
+    
+    @objc private func toogleAccountState() {
+        isAccountExist.toggle()
+        setupSignText()
     }
 }
