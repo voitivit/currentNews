@@ -80,6 +80,7 @@
 		F485B50E28580AC300CEFA34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F7F92ED2285A2AFF00873AF5 /* AuthRealmModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				F485B50B28580A6900CEFA34 /* AppMain */,
-				F7F92ED4285A2B0900873AF5 /* Model */,
 				F7A935E2285521D80017F57A /* Controllers */,
 				F485B50F28580ACB00CEFA34 /* Extensions */,
 				F485B50E28580AC300CEFA34 /* Models */,
@@ -145,14 +145,6 @@
 				F485B51128580B8900CEFA34 /* News */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		F7F92ED4285A2B0900873AF5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F7F92ED2285A2AFF00873AF5 /* AuthRealmModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

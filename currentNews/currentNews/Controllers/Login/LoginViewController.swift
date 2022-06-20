@@ -12,35 +12,38 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var realmUser: Results<Users>?
-    var user = Users()
+    var realmUser: Results<User>?
+    var user = User()
     let realm = try! Realm()
     
     override func viewWillAppear(_ animated: Bool) {
-        realmUser = realm.objects(Users.self)
+        realmUser = realm.objects(User.self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    func makeAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
     private func loginButtonTapped() {
         guard
             let login = loginTextField.text,
             let password = passwordTextField.text
         else { return }
         if login.isEmpty || password.isEmpty {
-            let alert = UIAlertController(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alert, animated: true, completion: nil)
+            makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
         } else {
             user.login = login
             user.password = password
-            if realm.object(ofType: Users.self, forPrimaryKey: "\(login)") != nil {
+            if realm.object(ofType: User.self, forPrimaryKey: "\(login)") != nil {
                 performSegue(withIdentifier: "showNews", sender: self)
             } else {
-                let alert = UIAlertController(title: "Неверный логин или пароль", message: "Повторите попытку", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                present(alert, animated: true, completion: nil)
+                makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
             }
         }
     }
@@ -52,17 +55,13 @@ class LoginViewController: UIViewController {
         else { return }
         
         if login.isEmpty || password.isEmpty {
-            let alert = UIAlertController(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alert, animated: true)
+            makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
         } else {
             user.login = login
             user.password = password
             
-            if realm.object(ofType: Users.self, forPrimaryKey: "\(login)") != nil {
-                let alert = UIAlertController(title: "Такой пользователь уже существует", message: "Проверьте данные или зарегистрируйтесь заново!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                present(alert, animated: true)
+            if realm.object(ofType: User.self, forPrimaryKey: "\(login)") != nil {
+                makeAlert(title: "Такой пользователь уже существует", message: "Проверьте данные или зарегистрируйтесь заново!")
             } else {
                 try! realm.write {
                     realm.add(user)
