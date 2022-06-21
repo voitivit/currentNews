@@ -14,6 +14,8 @@
 		F4FF89502860E17F009AF430 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9F9285E5D72002B8B7C /* Categories.swift */; };
 		F4FF89512860E185009AF430 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B51228591F4000CEFA34 /* NetworkService.swift */; };
 		F4FF89522860E19A009AF430 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B51628592C6800CEFA34 /* NewsModel.swift */; };
+		F4FFCC1F2862446C00233745 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFCC1E2862446C00233745 /* ImageCache.swift */; };
+		F4FFCC212862449100233745 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFCC202862449100233745 /* ImageDownloader.swift */; };
 		F7A935CB285518A10017F57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CA285518A10017F57A /* AppDelegate.swift */; };
 		F7A935CD285518A10017F57A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CC285518A10017F57A /* SceneDelegate.swift */; };
 		F7A935CF285518A10017F57A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A935CE285518A10017F57A /* LoginViewController.swift */; };
@@ -39,6 +41,8 @@
 		F4ABB9FB285E6265002B8B7C /* NewsLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLanguages.swift; sourceTree = "<group>"; };
 		F4ABB9FD285E6579002B8B7C /* SourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceModel.swift; sourceTree = "<group>"; };
 		F4ABB9FF285E6AD8002B8B7C /* NewsSortingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSortingType.swift; sourceTree = "<group>"; };
+		F4FFCC1E2862446C00233745 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F4FFCC202862449100233745 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		F7A935C7285518A10017F57A /* currentNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currentNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A935CA285518A10017F57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7A935CC285518A10017F57A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 		F485B50D28580AB500CEFA34 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F4FFCC222862467A00233745 /* ImageServices */,
 				F485B51228591F4000CEFA34 /* NetworkService.swift */,
 			);
 			path = Services;
@@ -167,6 +172,15 @@
 				F7E53EAE28606C44008F71C2 /* RealmConfig.swift */,
 			);
 			path = RealmManager;
+			sourceTree = "<group>";
+		};
+		F4FFCC222862467A00233745 /* ImageServices */ = {
+			isa = PBXGroup;
+			children = (
+				F4FFCC202862449100233745 /* ImageDownloader.swift */,
+				F4FFCC1E2862446C00233745 /* ImageCache.swift */,
+			);
+			path = ImageServices;
 			sourceTree = "<group>";
 		};
 		F7A935BE285518A10017F57A = {
@@ -295,10 +309,12 @@
 				F7A935CB285518A10017F57A /* AppDelegate.swift in Sources */,
 				F7F92ED3285A2AFF00873AF5 /* AuthRealmModel.swift in Sources */,
 				F7A935CD285518A10017F57A /* SceneDelegate.swift in Sources */,
+				F4FFCC212862449100233745 /* ImageDownloader.swift in Sources */,
 				F4ABB9FE285E6579002B8B7C /* SourceModel.swift in Sources */,
 				F4ABB9FC285E6265002B8B7C /* NewsLanguages.swift in Sources */,
 				F4FF89512860E185009AF430 /* NetworkService.swift in Sources */,
 				F7A935E12855205A0017F57A /* CurrentNewsViewController.swift in Sources */,
+				F4FFCC1F2862446C00233745 /* ImageCache.swift in Sources */,
 				F7E53EAF28606C44008F71C2 /* RealmConfig.swift in Sources */,
 				F4FF89522860E19A009AF430 /* NewsModel.swift in Sources */,
 				F4ABBA00285E6AD8002B8B7C /* NewsSortingType.swift in Sources */,
