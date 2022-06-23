@@ -16,6 +16,12 @@ class LaunchRouter: Router {
     func toNewsViewController() {
         perform(segue: "showNews")
     }
+    
+    func makeAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        controller.present(alert, animated: true, completion: nil)
+    }
 
 }
 
