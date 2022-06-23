@@ -38,14 +38,16 @@ class LoginViewController: UIViewController {
             let password = passwordTextField.text
         else { return }
         if login.isEmpty || password.isEmpty {
-            makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
+            router?.makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
+            //  makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
         } else {
             user.login = login
             user.password = password
             if authRealm.searchLogin(User(login: login, password: password)) {
                 router?.toNewsViewController()
             } else {
-                makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
+                router?.makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
+                //makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
             }
         }
     }
@@ -57,9 +59,11 @@ class LoginViewController: UIViewController {
         else { return }
         
         if login.isEmpty || password.isEmpty {
-            makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
+            router?.makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
+            //makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
         } else if authRealm.searchLogin(User(login: login, password: password)) {
-            makeAlert(title: "Такой пользователь уже существует", message: "Проверьте данные или зарегистрируйтесь заново!")
+            router?.makeAlert(title: "Такой пользователь уже существует", message: "Проверьте данные или зарегистрируйтесь заново!")
+            //makeAlert(title: "Такой пользователь уже существует", message: "Проверьте данные или зарегистрируйтесь заново!")
         } else {
             user.login = login
             user.password = password
