@@ -9,8 +9,8 @@ import UIKit
 
 class AuthView: UIView {
     
-    @objc var goButtonHandler: ((String, String) -> Void)?
-    @objc var passwordRecoveryButtonHandler: ((String, String) -> Void)?
+    var goButtonHandler: ((String?, String?) -> Void)?
+    var passwordRecoveryButtonHandler: ((String?) -> Void)?
     
     enum Constants {
         static let signInTitleText = "Let's Sign You In"
@@ -30,7 +30,7 @@ class AuthView: UIView {
     
     // MARK: - Private Properties
     
-    private var isAccountExist: Bool = false
+    var isAccountExist: Bool = false
     
     // MARK: - Subviews
     
@@ -107,7 +107,7 @@ class AuthView: UIView {
         button.backgroundColor = Constants.mainPinkColor
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
+//        button.isEnabled = false
         return button
     }()
     
@@ -277,8 +277,16 @@ class AuthView: UIView {
     
     private func setButtonsAction() {
         accountStateButton.addTarget(self, action: #selector(toogleAccountState), for: .touchUpInside)
-        goButton.addTarget(self, action: #selector(getter: goButtonHandler), for: .touchUpInside)
-        passwordRecoveryButton.addTarget(self, action: #selector(getter: passwordRecoveryButtonHandler), for: .touchUpInside)
+        goButton.addTarget(self, action: #selector(self.goButtonPressed), for: .touchUpInside)
+        passwordRecoveryButton.addTarget(self, action: #selector(self.passwordRecoveryButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc private func goButtonPressed() {
+        goButtonHandler?(self.usernameTextField.text, self.passwordTextField.text)
+    }
+    
+    @objc private func passwordRecoveryButtonPressed() {
+        passwordRecoveryButtonHandler?(self.usernameTextField.text)
     }
     
     @objc private func toogleAccountState() {
