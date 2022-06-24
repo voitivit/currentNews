@@ -11,9 +11,6 @@ import RealmSwift
 class LoginViewController: UIViewController {
     
     private lazy var signinView = AuthView()
-
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     
     var user = User()
     var router: LaunchRouter?
@@ -21,6 +18,7 @@ class LoginViewController: UIViewController {
     
     override func loadView() {
         view = signinView
+        setButtonAction()
     }
     
     override func viewDidLoad() {
@@ -31,6 +29,11 @@ class LoginViewController: UIViewController {
         router = LaunchRouter(viewController: self)
     }
    
+    private func setButtonAction() {
+        signinView.goButtonHandler = signinView.isAccountExist
+        ? loginButtonTapped.self
+        : signUpButtonTapped.self
+    }
     
     func makeAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -38,10 +41,10 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    private func loginButtonTapped() {
+    private func loginButtonTapped(loginTextField: String?, passwordTextField: String?) {
         guard
-            let login = loginTextField.text,
-            let password = passwordTextField.text
+            let login = loginTextField,
+            let password = passwordTextField
         else { return }
         if login.isEmpty || password.isEmpty {
             router?.makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
@@ -50,7 +53,8 @@ class LoginViewController: UIViewController {
             user.login = login
             user.password = password
             if authRealm.searchLogin(User(login: login, password: password)) {
-                router?.toNewsViewController()
+                // TODO: Router without segue
+//                router?.toNewsViewController()
             } else {
                 router?.makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
                 //makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
@@ -58,10 +62,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func signUpButtonTapped() {
+    private func signUpButtonTapped(loginTextField: String?, passwordTextField: String?) {
         guard
-            let login = loginTextField.text,
-            let password = passwordTextField.text
+            let login = loginTextField,
+            let password = passwordTextField
         else { return }
         
         if login.isEmpty || password.isEmpty {
@@ -77,16 +81,8 @@ class LoginViewController: UIViewController {
             authRealm.addUser(User(login: login, password: password))
             
             }
-                router?.toNewsViewController()
+        // TODO: Router without segue
+//                router?.toNewsViewController()
             }
-        
-    
-    
-    @IBAction func logInAction(_ sender: Any) {
-        loginButtonTapped()
-    }
-    @IBAction func signUpAction(_ sender: Any) {
-        signUpButtonTapped()
-    }
 }
 
