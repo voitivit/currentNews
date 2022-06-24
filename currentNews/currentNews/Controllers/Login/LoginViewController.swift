@@ -19,6 +19,10 @@ class LoginViewController: UIViewController {
     var router: LaunchRouter?
     private let authRealm = AuthRealm()
     
+    override func loadView() {
+        view = signinView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -84,12 +88,5 @@ class LoginViewController: UIViewController {
     @IBAction func signUpAction(_ sender: Any) {
         signUpButtonTapped()
     }
-    
-=======
-
-    override func loadView() {
-        view = signinView
-    }
->>>>>>> 6caa25b... refactoring Auth view
 }
 
