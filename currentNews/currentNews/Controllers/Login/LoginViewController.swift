@@ -46,7 +46,6 @@ class LoginViewController: UIViewController {
             let login = loginTextField,
             let password = passwordTextField
         else { return }
-        print(login, password)
         if login.isEmpty || password.isEmpty {
             router?.makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
             //  makeAlert(title: "Введите логин и пароль", message: "Пожалуйста, заполните все поля")
@@ -54,7 +53,8 @@ class LoginViewController: UIViewController {
             user.login = login
             user.password = password
             if authRealm.searchLogin(User(login: login, password: password)) {
-                router?.toNewsViewController()
+                // TODO: Router without segue
+//                router?.toNewsViewController()
             } else {
                 router?.makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")
                 //makeAlert(title: "Неверный логин или пароль", message: "Повторите попытку")

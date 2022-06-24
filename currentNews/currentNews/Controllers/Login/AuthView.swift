@@ -11,6 +11,7 @@ class AuthView: UIView {
     
     var goButtonHandler: ((String?, String?) -> Void)?
     var passwordRecoveryButtonHandler: ((String?) -> Void)?
+    var isAccountExist: Bool = false
     
     enum Constants {
         static let signInTitleText = "Let's Sign You In"
@@ -30,7 +31,7 @@ class AuthView: UIView {
     
     // MARK: - Private Properties
     
-    var isAccountExist: Bool = false
+    
     
     // MARK: - Subviews
     
@@ -107,7 +108,6 @@ class AuthView: UIView {
         button.backgroundColor = Constants.mainPinkColor
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
-//        button.isEnabled = false
         return button
     }()
     
