@@ -9,6 +9,8 @@ import UIKit
 import RealmSwift
 
 class LoginViewController: UIViewController {
+    
+    private lazy var signinView = AuthView()
 
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -17,10 +19,14 @@ class LoginViewController: UIViewController {
     var router: LaunchRouter?
     private let authRealm = AuthRealm()
     
+    override func loadView() {
+        view = signinView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         router = LaunchRouter(viewController: self)
     }
@@ -82,6 +88,5 @@ class LoginViewController: UIViewController {
     @IBAction func signUpAction(_ sender: Any) {
         signUpButtonTapped()
     }
-    
 }
 
