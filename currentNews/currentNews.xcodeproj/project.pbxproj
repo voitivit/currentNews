@@ -97,8 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				F485B51228591F4000CEFA34 /* NetworkService.swift */,
-				F4FFCC1E2862446C00233745 /* ImageCache.swift */,
-				F4FFCC202862449100233745 /* ImageDownloader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -197,6 +195,8 @@
 				F485B50B28580A6900CEFA34 /* AppMain */,
 				F7A935E2285521D80017F57A /* Controllers */,
 				F485B50F28580ACB00CEFA34 /* Extensions */,
+				F4FFCC1E2862446C00233745 /* ImageCache.swift */,
+				F4FFCC202862449100233745 /* ImageDownloader.swift */,
 				F485B50E28580AC300CEFA34 /* Models */,
 				F4FF894D2860E06C009AF430 /* Navigation */,
 				F4FF894F2860E09C009AF430 /* RealmManager */,
