@@ -96,8 +96,9 @@
 		F485B50D28580AB500CEFA34 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F4FFCC222862467A00233745 /* ImageServices */,
 				F485B51228591F4000CEFA34 /* NetworkService.swift */,
+				F4FFCC1E2862446C00233745 /* ImageCache.swift */,
+				F4FFCC202862449100233745 /* ImageDownloader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -172,15 +173,6 @@
 				F7E53EAE28606C44008F71C2 /* RealmConfig.swift */,
 			);
 			path = RealmManager;
-			sourceTree = "<group>";
-		};
-		F4FFCC222862467A00233745 /* ImageServices */ = {
-			isa = PBXGroup;
-			children = (
-				F4FFCC202862449100233745 /* ImageDownloader.swift */,
-				F4FFCC1E2862446C00233745 /* ImageCache.swift */,
-			);
-			path = ImageServices;
 			sourceTree = "<group>";
 		};
 		F7A935BE285518A10017F57A = {
