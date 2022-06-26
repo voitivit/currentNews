@@ -7,32 +7,44 @@
 
 import UIKit
 
-class NewsViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+final class NewsViewController: UIViewController {
     
     private let networkService = NetworkService()
     
+    private var newsFeedView: NewsContentView {
+        return self.view as! NewsContentView
+    }
+    
+    // MARK: - Lifecycle
+    
+    override func loadView() {
+        super.loadView()
+        self.view = NewsContentView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-        tableView.dataSource = self
+        setupTableView()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupTableView() {
+        newsFeedView.tableView.dataSource = self
+        newsFeedView.tableView.delegate = self
     }
     
 }
-extension NewsViewController: UITableViewDataSource {
+
+extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCell.reuseIdentifier, for: indexPath)
         
-        cell.textLabel?.text = "Новости"
         return cell
     }
-    
-    
-    
 }
