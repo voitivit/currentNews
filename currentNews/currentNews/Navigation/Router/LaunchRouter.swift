@@ -14,7 +14,7 @@ class LaunchRouter: Router {
     }
     
     func toNewsViewController() {
-        let next = NewsViewController()
+        let next = NewsFeedBuilder.build()
         controller.navigationController?.pushViewController(next, animated: true)
     }
     

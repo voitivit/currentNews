@@ -1,5 +1,5 @@
 //
-//  NewsViewController.swift
+//  NewsFeedViewController.swift
 //  currentNews
 //
 //  Created by emil kurbanov on 11.06.2022.
@@ -7,24 +7,26 @@
 
 import UIKit
 
-final class NewsViewController: UIViewController {
+final class NewsFeedViewController: UIViewController {
     
-    private let networkService = NetworkService()
+    var presenter: NewsFeedPresenter?
     
-    private var newsFeedView: NewsContentView {
-        return self.view as! NewsContentView
+    private var newsFeedView: NewsFeedContentView {
+        return self.view as! NewsFeedContentView
     }
     
     // MARK: - Lifecycle
     
     override func loadView() {
         super.loadView()
-        self.view = NewsContentView()
+        self.view = NewsFeedContentView()
+        presenter?.controller = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        presenter?.getMainFeed()
     }
     
     // MARK: - Private Methods
@@ -36,15 +38,26 @@ final class NewsViewController: UIViewController {
     
 }
 
-extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: - UITableViewDataSource & UITableViewDelegate
+
+extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return presenter?.headlines.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCell.reuseIdentifier, for: indexPath)
         
         return cell
+    }
+}
+
+extension NewsFeedViewController: NewsFeedInput {
+    
+    func reloadController() {
+        DispatchQueue.main.async {
+            self.newsFeedView.tableView.reloadData()
+        }
     }
 }

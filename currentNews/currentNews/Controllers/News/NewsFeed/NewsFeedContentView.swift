@@ -1,5 +1,5 @@
 //
-//  NewsContentView.swift
+//  NewsFeedContentView.swift
 //  currentNews
 //
 //  Created by Lewis on 26.06.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NewsContentView: UIView {
+final class NewsFeedContentView: UIView {
     
     // MARK: - Subviews
     
