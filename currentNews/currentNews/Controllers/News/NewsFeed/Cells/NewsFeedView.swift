@@ -21,9 +21,18 @@ class NewsFeedView: UIView {
             
             self.titleLabel.text = item.title
             self.sourceLabel.text = item.source.name
-            self.dateLabel.text = item.publishedAt
+            
+            guard let dateInFormat = dateFormatter.date(from: item.publishedAt) else { return }
+            dateFormatter.dateFormat = "d MMM y"
+            self.dateLabel.text = dateFormatter.string(from: dateInFormat)
         }
     }
+    
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        return dateFormatter
+    }()
     
     // MARK: - Subviews
     
