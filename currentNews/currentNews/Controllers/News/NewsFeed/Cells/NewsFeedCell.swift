@@ -13,12 +13,43 @@ final class NewsFeedCell: UITableViewCell {
     
     // MARK: - Subviews
     
-    let label: UILabel = {
+    let image: UIImageView = {
+        let image = UIImageView()
+        image.backgroundColor = .gray
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.text = "НОВОСТИ"
+        label.text = "Here will be title"
         return label
+    }()
+    
+    let sourceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Sourse"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Date"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews:
+                                    [titleLabel, sourceLabel, dateLabel])
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.spacing = 12
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
     }()
     
     // MARK: - Init
@@ -40,16 +71,25 @@ final class NewsFeedCell: UITableViewCell {
     }
     
     private func addViews() {
-        self.addSubview(label)
-
+        addSubview(image)
+        addSubview(stackView)
     }
     
     private func setupConstraints() {
+        let margins = contentView.layoutMarginsGuide
+        
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 6),
-            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -6),
+            image.topAnchor.constraint(equalTo: topAnchor),
+            image.leadingAnchor.constraint(equalTo: leadingAnchor),
+            image.widthAnchor.constraint(equalTo: image.heightAnchor),
+            image.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: margins.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
         ])
     }
 }
