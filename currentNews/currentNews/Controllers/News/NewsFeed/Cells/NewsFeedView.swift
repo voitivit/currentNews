@@ -9,9 +9,25 @@ import UIKit
 
 class NewsFeedView: UIView {
     
+    private var newsFeedEntry: Headline? {
+        willSet(item) {
+            guard let item = item
+            else {
+                self.titleLabel.text = "News title"
+                self.sourceLabel.text = "Sourse"
+                self.dateLabel.text = "Date"
+                return
+            }
+            
+            self.titleLabel.text = item.title
+            self.sourceLabel.text = item.source.name
+            self.dateLabel.text = item.publishedAt
+        }
+    }
+    
     // MARK: - Subviews
     
-    let containerView: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
@@ -21,32 +37,29 @@ class NewsFeedView: UIView {
         return view
     }()
     
-    let image: UIImageView = {
+    private let image: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .lightGray
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.text = "Population revealed in census shows it has grown by 6.3% in the last 10 years - Sky News"
         return label
     }()
     
-    let sourceLabel: UILabel = {
+    private let sourceLabel: UILabel = {
         let label = UILabel()
-        label.text = "Sourse"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let dateLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Date"
         label.textColor = UIColor(red: 1.00, green: 0.50, blue: 0.48, alpha: 1.00)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -71,6 +84,10 @@ class NewsFeedView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(model: Headline) {
+        newsFeedEntry = model
     }
     
     private func setupView() {
