@@ -24,6 +24,10 @@ final class NewsFeedCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(model: Headline) {
+        view.newsFeedEntry = model
+    }
+    
     // MARK: - UI
     
     private func configureUI() {

@@ -9,7 +9,7 @@ import UIKit
 
 class NewsFeedView: UIView {
     
-    private var newsFeedEntry: Headline? {
+    var newsFeedEntry: Headline? {
         willSet(item) {
             guard let item = item
             else {
@@ -86,9 +86,7 @@ class NewsFeedView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(model: Headline) {
-        newsFeedEntry = model
-    }
+    // MARK: - Private Methods
     
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
