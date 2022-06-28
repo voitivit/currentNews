@@ -11,15 +11,7 @@ final class NewsFeedCell: UITableViewCell {
     
     static let reuseIdentifier = "NewsFeedCell"
     
-    // MARK: - Subviews
-    
-    let label: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.text = "НОВОСТИ"
-        return label
-    }()
+    let view = NewsFeedView()
     
     // MARK: - Init
     
@@ -32,24 +24,20 @@ final class NewsFeedCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(model: Headline) {
+        view.newsFeedEntry = model
+    }
+    
     // MARK: - UI
     
     private func configureUI() {
-        addViews()
-        setupConstraints()
-    }
-    
-    private func addViews() {
-        self.addSubview(label)
-
-    }
-    
-    private func setupConstraints() {
+        addSubview(view)
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 6),
-            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -6),
+            view.topAnchor.constraint(equalTo: topAnchor),
+            view.leadingAnchor.constraint(equalTo: leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
 }

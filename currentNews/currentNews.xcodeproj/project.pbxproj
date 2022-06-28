@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB12497F285FD1F20028C076 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12497E285FD1F20028C076 /* AuthView.swift */; };
+		ABE9C549286B5A0E00ADC36B /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9C548286B5A0E00ADC36B /* NewsFeedView.swift */; };
 		F485B5152859212E00CEFA34 /* CountriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485B5142859212E00CEFA34 /* CountriesList.swift */; };
 		F4ABB9FC285E6265002B8B7C /* NewsLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FB285E6265002B8B7C /* NewsLanguages.swift */; };
 		F4ABB9FE285E6579002B8B7C /* SourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABB9FD285E6579002B8B7C /* SourceModel.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		AB12497E285FD1F20028C076 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		ABE9C548286B5A0E00ADC36B /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		F485B51228591F4000CEFA34 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F485B5142859212E00CEFA34 /* CountriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesList.swift; sourceTree = "<group>"; };
 		F485B51628592C6800CEFA34 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				F4DEEC392867E215006EE5FC /* NewsFeedCell.swift */,
+				ABE9C548286B5A0E00ADC36B /* NewsFeedView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				F4DEEC3328674E76006EE5FC /* ImageDownloader.swift in Sources */,
 				F7A935CD285518A10017F57A /* SceneDelegate.swift in Sources */,
 				F4DEEC3528674EA9006EE5FC /* ImageCache.swift in Sources */,
+				ABE9C549286B5A0E00ADC36B /* NewsFeedView.swift in Sources */,
 				F4DEEC3E28688384006EE5FC /* NewsFeedPresenter.swift in Sources */,
 				F4DEEC42286887C1006EE5FC /* NewsFeedBuilder.swift in Sources */,
 				F4ABB9FE285E6579002B8B7C /* SourceModel.swift in Sources */,
