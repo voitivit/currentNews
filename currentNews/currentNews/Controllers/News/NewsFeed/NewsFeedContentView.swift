@@ -13,8 +13,9 @@ final class NewsFeedContentView: UIView {
     
     lazy var tableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .plain)
+        tv.separatorStyle = UITableViewCell.SeparatorStyle.none
         tv.rowHeight = UITableView.automaticDimension
-        tv.rowHeight = 120
+        tv.rowHeight = 150
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.register(NewsFeedCell.self, forCellReuseIdentifier: NewsFeedCell.reuseIdentifier)
         return tv
