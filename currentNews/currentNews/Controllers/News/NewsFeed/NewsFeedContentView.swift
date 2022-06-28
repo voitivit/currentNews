@@ -36,6 +36,7 @@ final class NewsFeedContentView: UIView {
     // MARK: - UI
     
     private func configureUI() {
+        backgroundColor = .white
         addViews()
         setupConstraints()
     }
@@ -45,11 +46,13 @@ final class NewsFeedContentView: UIView {
     }
     
     private func setupConstraints() {
+        let margins = safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: self.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            tableView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 8),
+            tableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -8),
+            tableView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8),
+            tableView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
         ])
     }
 }
