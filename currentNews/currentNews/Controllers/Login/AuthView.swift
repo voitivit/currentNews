@@ -13,22 +13,6 @@ class AuthView: UIView {
     var passwordRecoveryButtonHandler: ((String?) -> Void)?
     var isAccountExist: Bool = false
     
-    enum Constants {
-        static let signInTitleText = "Let's Sign You In"
-        static let signUpTitleText = "Create an Account"
-        static let loginText = "Email"
-        static let passwordText = "Password"
-        static let passwordRecoveryText = "Forgot the password?"
-        static let makeAccountTextLabel = "Don't have an account?"
-        static let haveAccountTextLabel = "Already have an account?"
-        static let signUpText = "Sign up"
-        static let signInText = "Sign in"
-        static let imageName = "logo-big"
-        static let fontTitle = UIFont(name: "MuktaMahee Bold", size: 32)
-        static let fontRegular = UIFont(name: "MuktaMahee Bold", size: 16)
-        static let mainPinkColor = UIColor(red: 1.00, green: 0.42, blue: 0.39, alpha: 1.00)
-    }
-    
     // MARK: - Private Properties
     
     
@@ -46,15 +30,15 @@ class AuthView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = Constants.fontTitle
+        label.font = AppLayout.Fonts.bigTitle
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.font = Constants.fontRegular
-        label.text = Constants.loginText
+        label.font = AppLayout.Fonts.regularText
+        label.text = Text.email
         label.setContentHuggingPriority(.init(rawValue: 251), for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -62,9 +46,9 @@ class AuthView: UIView {
     
     private let usernameStarLabel: UILabel = {
         let label = UILabel()
-        label.font = Constants.fontRegular
+        label.font = AppLayout.Fonts.regularText
         label.textColor = UIColor.red
-        label.text = "*"
+        label.text = Text.starSimbol
         label.setContentHuggingPriority(.init(rawValue: 250), for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -72,8 +56,8 @@ class AuthView: UIView {
     
     private let passwordLabel: UILabel = {
         let label = UILabel()
-        label.font = Constants.fontRegular
-        label.text = Constants.passwordText
+        label.font = AppLayout.Fonts.regularText
+        label.text = Text.password
         label.setContentHuggingPriority(.init(rawValue: 251), for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -81,9 +65,9 @@ class AuthView: UIView {
     
     private let passwordStarLabel: UILabel = {
         let label = UILabel()
-        label.font = Constants.fontRegular
+        label.font = AppLayout.Fonts.regularText
         label.textColor = UIColor.red
-        label.text = "*"
+        label.text = Text.starSimbol
         label.setContentHuggingPriority(.init(rawValue: 250), for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -103,9 +87,9 @@ class AuthView: UIView {
     
     private let goButton: UIButton = {
         let button = UIButton(type: .system)
-        button.titleLabel?.font = Constants.fontRegular
+        button.titleLabel?.font = AppLayout.Fonts.regularText
         button.tintColor = .white
-        button.backgroundColor = Constants.mainPinkColor
+        button.backgroundColor = AppLayout.Colors.mainPink
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -113,9 +97,9 @@ class AuthView: UIView {
     
     private let passwordRecoveryButton: UIButton = {
         let button = UIButton(type: .system)
-        button.titleLabel?.font = Constants.fontRegular
-        button.setTitle(Constants.passwordRecoveryText, for: .normal)
-        button.tintColor = Constants.mainPinkColor
+        button.titleLabel?.font = AppLayout.Fonts.regularText
+        button.setTitle(Text.forgotPassword, for: .normal)
+        button.tintColor = AppLayout.Colors.mainPink
         button.backgroundColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -123,16 +107,16 @@ class AuthView: UIView {
     
     private let accountStateLabel: UILabel = {
         let label = UILabel()
-        label.font = Constants.fontRegular
+        label.font = AppLayout.Fonts.regularText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let accountStateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.titleLabel?.font = Constants.fontRegular
+        button.titleLabel?.font = AppLayout.Fonts.regularText
         button.contentHorizontalAlignment = .left
-        button.tintColor = Constants.mainPinkColor
+        button.tintColor = AppLayout.Colors.mainPink
         button.backgroundColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -205,7 +189,7 @@ class AuthView: UIView {
         addSubview(stackView)
         addSubview(passwordRecoveryButton)
         addSubview(accountStateView)
-        image.image = UIImage(named: Constants.imageName)
+        image.image = UIImage(named: AppLayout.Images.bigLogo)
         setupConstraints()
         setupSignText()
         setButtonsAction()
@@ -259,17 +243,17 @@ class AuthView: UIView {
     
     private func setupSignText() {
         if isAccountExist {
-            titleLabel.text = Constants.signInTitleText
-            goButton.setTitle(Constants.signInText, for: .normal)
-            accountStateLabel.text = Constants.makeAccountTextLabel
-            accountStateButton.setTitle(Constants.signUpText, for: .normal)
+            titleLabel.text = Text.letsSignIn
+            goButton.setTitle(Text.signIn, for: .normal)
+            accountStateLabel.text = Text.dontHaveAccount
+            accountStateButton.setTitle(Text.signUp, for: .normal)
             
             passwordRecoveryButton.isHidden = false
         } else {
-            titleLabel.text = Constants.signUpTitleText
-            goButton.setTitle(Constants.signUpText, for: .normal)
-            accountStateLabel.text = Constants.haveAccountTextLabel
-            accountStateButton.setTitle(Constants.signInText, for: .normal)
+            titleLabel.text = Text.createAccount
+            goButton.setTitle(Text.signUp, for: .normal)
+            accountStateLabel.text = Text.haveAccount
+            accountStateButton.setTitle(Text.signIn, for: .normal)
             
             passwordRecoveryButton.isHidden = true
         }
