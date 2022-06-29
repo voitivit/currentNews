@@ -30,14 +30,14 @@ class AuthView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = AppLayout.Fonts.bigTitle
+        label.font = AppLayout.Fonts.bigBold
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.font = AppLayout.Fonts.regularText
+        label.font = AppLayout.Fonts.regularBold
         label.text = Text.email
         label.setContentHuggingPriority(.init(rawValue: 251), for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +46,7 @@ class AuthView: UIView {
     
     private let usernameStarLabel: UILabel = {
         let label = UILabel()
-        label.font = AppLayout.Fonts.regularText
+        label.font = AppLayout.Fonts.regularBold
         label.textColor = UIColor.red
         label.text = Text.starSimbol
         label.setContentHuggingPriority(.init(rawValue: 250), for: .horizontal)
@@ -56,7 +56,7 @@ class AuthView: UIView {
     
     private let passwordLabel: UILabel = {
         let label = UILabel()
-        label.font = AppLayout.Fonts.regularText
+        label.font = AppLayout.Fonts.regularBold
         label.text = Text.password
         label.setContentHuggingPriority(.init(rawValue: 251), for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +65,7 @@ class AuthView: UIView {
     
     private let passwordStarLabel: UILabel = {
         let label = UILabel()
-        label.font = AppLayout.Fonts.regularText
+        label.font = AppLayout.Fonts.regularBold
         label.textColor = UIColor.red
         label.text = Text.starSimbol
         label.setContentHuggingPriority(.init(rawValue: 250), for: .horizontal)
@@ -87,7 +87,7 @@ class AuthView: UIView {
     
     private let goButton: UIButton = {
         let button = UIButton(type: .system)
-        button.titleLabel?.font = AppLayout.Fonts.regularText
+        button.titleLabel?.font = AppLayout.Fonts.regularBold
         button.tintColor = .white
         button.backgroundColor = AppLayout.Colors.mainPink
         button.layer.cornerRadius = 25
@@ -97,7 +97,7 @@ class AuthView: UIView {
     
     private let passwordRecoveryButton: UIButton = {
         let button = UIButton(type: .system)
-        button.titleLabel?.font = AppLayout.Fonts.regularText
+        button.titleLabel?.font = AppLayout.Fonts.regularBold
         button.setTitle(Text.forgotPassword, for: .normal)
         button.tintColor = AppLayout.Colors.mainPink
         button.backgroundColor = .white
@@ -107,14 +107,14 @@ class AuthView: UIView {
     
     private let accountStateLabel: UILabel = {
         let label = UILabel()
-        label.font = AppLayout.Fonts.regularText
+        label.font = AppLayout.Fonts.regularBold
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let accountStateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.titleLabel?.font = AppLayout.Fonts.regularText
+        button.titleLabel?.font = AppLayout.Fonts.regularBold
         button.contentHorizontalAlignment = .left
         button.tintColor = AppLayout.Colors.mainPink
         button.backgroundColor = .white

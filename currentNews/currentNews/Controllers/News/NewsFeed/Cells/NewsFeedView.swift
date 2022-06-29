@@ -12,12 +12,7 @@ class NewsFeedView: UIView {
     var newsFeedEntry: Headline? {
         willSet(item) {
             guard let item = item
-            else {
-                self.titleLabel.text = "News title"
-                self.sourceLabel.text = "Sourse"
-                self.dateLabel.text = "Date"
-                return
-            }
+            else { return }
             
             self.titleLabel.text = item.title
             self.sourceLabel.text = item.source.name
@@ -41,14 +36,14 @@ class NewsFeedView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
         view.layer.cornerRadius = 20
-        view.layer.borderColor = UIColor(red: 0.92, green: 0.93, blue: 0.95, alpha: 1.00).cgColor
+        view.layer.borderColor = AppLayout.Colors.lightGray.cgColor
         view.layer.borderWidth = 1
         return view
     }()
     
     private let image: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .lightGray
+        image.backgroundColor = AppLayout.Colors.gray
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -57,19 +52,21 @@ class NewsFeedView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = AppLayout.Fonts.smallBold
         return label
     }()
     
     private let sourceLabel: UILabel = {
         let label = UILabel()
+        label.font = AppLayout.Fonts.regular
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 1.00, green: 0.50, blue: 0.48, alpha: 1.00)
+        label.textColor = AppLayout.Colors.lightPink
+        label.font = AppLayout.Fonts.regular
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
