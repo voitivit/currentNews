@@ -52,6 +52,7 @@ class NewsFeedView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = AppLayout.Colors.darkBlue
         label.font = AppLayout.Fonts.smallBold
         return label
     }()
@@ -59,6 +60,7 @@ class NewsFeedView: UIView {
     private let sourceLabel: UILabel = {
         let label = UILabel()
         label.font = AppLayout.Fonts.regular
+        label.textColor = AppLayout.Colors.darkBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

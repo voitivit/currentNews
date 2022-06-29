@@ -21,6 +21,8 @@ final class NewsFeedContentView: UIView {
         return tv
     }()
     
+    lazy var headerView = NewsFeedHeaderView()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -43,15 +45,23 @@ final class NewsFeedContentView: UIView {
     
     private func addViews() {
         self.addSubview(tableView)
+        addSubview(headerView)
     }
     
     private func setupConstraints() {
         let margins = safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 8),
-            tableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -8),
-            tableView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8),
+            headerView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 16),
+            headerView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -16),
+            headerView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8),
+            headerView.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -16),
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
             tableView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
         ])
     }
