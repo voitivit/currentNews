@@ -25,6 +25,7 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reSetupButton), name:  NSNotification.Name(rawValue: "ReSetUpButton"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +38,10 @@ final class LoginViewController: UIViewController {
         signinView.goButtonHandler = signinView.isAccountExist
         ? signUpButtonTapped.self
         : loginButtonTapped.self
+    }
+    
+    @objc private func reSetupButton() {
+        setButtonAction()
     }
     
     private func loginButtonTapped(loginTextField: String?, passwordTextField: String?) {

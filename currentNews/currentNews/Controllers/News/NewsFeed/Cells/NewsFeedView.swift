@@ -7,12 +7,13 @@
 
 import UIKit
 
-class NewsFeedView: UIView {
+final class NewsFeedView: UIView {
+    
+    private let imageDownloader = ImageDownloader()
     
     var newsFeedEntry: Headline? {
         willSet(item) {
-            guard let item = item
-            else { return }
+            guard let item = item else { return }
             
             self.titleLabel.text = item.title
             self.sourceLabel.text = item.source.name
@@ -20,6 +21,21 @@ class NewsFeedView: UIView {
             guard let dateInFormat = dateFormatter.date(from: item.publishedAt) else { return }
             dateFormatter.dateFormat = "d MMM y"
             self.dateLabel.text = dateFormatter.string(from: dateInFormat)
+            
+            guard let urlString = item.urlToImage else {
+                return }
+            if let cachedImage = ImageCache.shared.object(forKey: urlString as NSString) {
+                self.image.image = cachedImage
+            } else {
+                imageDownloader.downloadImage(url: item.urlToImage ?? "") { [weak self] downloadedImage in
+                    guard let self = self,
+                          let image = downloadedImage else { return }
+                    DispatchQueue.main.async {
+                        self.image.image = image
+                        ImageCache.shared.setObject(image, forKey: urlString as NSString)
+                    }
+                }
+            }
         }
     }
     
@@ -72,8 +88,7 @@ class NewsFeedView: UIView {
     }()
     
     private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews:
-                                    [titleLabel, sourceLabel, dateLabel])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, sourceLabel, dateLabel])
         stack.axis = .vertical
         stack.distribution = .equalSpacing
         stack.alignment = .leading

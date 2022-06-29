@@ -76,12 +76,15 @@ class AuthView: UIView {
     private let usernameTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
     private let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
+        textField.clearButtonMode = .whileEditing
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -276,5 +279,6 @@ class AuthView: UIView {
     @objc private func toogleAccountState() {
         isAccountExist.toggle()
         setupSignText()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ReSetUpButton"), object: nil)
     }
 }

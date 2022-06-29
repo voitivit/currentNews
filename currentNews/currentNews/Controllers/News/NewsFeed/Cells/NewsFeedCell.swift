@@ -24,6 +24,11 @@ final class NewsFeedCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        view.newsFeedEntry = nil
+    }
+    
     func configure(model: Headline) {
         view.newsFeedEntry = model
     }
@@ -32,6 +37,7 @@ final class NewsFeedCell: UITableViewCell {
     
     private func configureUI() {
         addSubview(view)
+        selectionStyle = .none
         NSLayoutConstraint.activate([
             view.topAnchor.constraint(equalTo: topAnchor),
             view.leadingAnchor.constraint(equalTo: leadingAnchor),

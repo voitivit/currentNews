@@ -25,6 +25,8 @@ final class NewsFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "News"
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupTableView()
         presenter?.getMainFeed()
     }
