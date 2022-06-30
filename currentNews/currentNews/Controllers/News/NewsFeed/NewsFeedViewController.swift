@@ -20,24 +20,27 @@ final class NewsFeedViewController: UIViewController {
     override func loadView() {
         super.loadView()
         self.view = NewsFeedContentView()
-        presenter?.controller = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "News"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setupNavBar()
         setupTableView()
         presenter?.getMainFeed()
     }
     
     // MARK: - Private Methods
     
+    private func setupNavBar() {
+        title = "News"
+        navigationController?.navigationItem.setHidesBackButton(true, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     private func setupTableView() {
         newsFeedView.tableView.dataSource = self
         newsFeedView.tableView.delegate = self
     }
-    
 }
 
 // MARK: - UITableViewDataSource & UITableViewDelegate

@@ -74,8 +74,8 @@ final class LoginViewController: UIViewController {
         } else {
             user = User(login: login, password: password)
             authRealm.addUser(user)
+            router?.toNewsViewController()
         }
-        router?.toNewsViewController()
     }
 }
 
