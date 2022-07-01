@@ -19,5 +19,6 @@ enum Text {
     static let signUp = "Sign up"
     static let signIn = "Sign in"
     static let starSimbol = "*"
+    static let currentNews = "Current News"
     
 }
